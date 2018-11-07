@@ -43,15 +43,19 @@ export default class ResultSearch extends Component {
         this.setState({page})
     };
 
+    _toLimit (page) {
+        return page > this._maxPage
+            ? this._maxPage
+            : page < 0
+                ? 0
+                : page;
+    }
+
     _onChange = page => {
         clearTimeout(this.timeOutId);
         this.timeOutId = setTimeout(() => {
             --page;
-            page = page > this._maxPage
-                ? this._maxPage
-                : page < 0
-                    ? 0
-                    : page;
+            page = this._toLimit(page);
             this.setState({page})
         }, 1000);
     };
