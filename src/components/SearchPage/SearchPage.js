@@ -27,7 +27,6 @@ export default class SearchPage extends Component {
 
     _onSubmit = e => {
         e.preventDefault();
-        console.log(e.currentTarget.input.value);
         this._getData(e.currentTarget.input.value);
     };
 

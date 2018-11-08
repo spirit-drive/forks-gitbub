@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ButtonArrow from '../ButtonArrow/ButtonArrow';
 import InputNumber from '../InputNumber/InputNumber';
+import Bookmark from '../Bookmark/Bookmark';
 
 export default class ResultSearch extends Component {
 
@@ -99,7 +100,9 @@ export default class ResultSearch extends Component {
                                     <td className="result-search__cell">{item.owner.login}</td>
                                     <td className={`result-search__cell result-search__center${item.stargazers_count ? '' : ' result-search__dark'}`}>{item.stargazers_count}</td>
                                     <td className="result-search__cell"><a href={item.html_url} target="_blank">{item.html_url}</a></td>
-                                    <td className="result-search__cell result-search__center">X</td>
+                                    <td className="result-search__cell result-search__center">
+                                        <Bookmark className="result-search__bookmark" id={item.id}/>
+                                    </td>
 
                                 </tr>
                             )}
